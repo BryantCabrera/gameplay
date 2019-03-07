@@ -1,13 +1,18 @@
 import React, { Component } from 'react';
 import { withRouter, NavLink } from 'react-router-dom';
+import logo from '../logo.svg';
 
 class NavBar extends Component {
     render () {
         return (
             <div className="navbar">
-                <nav className="navbar--links">
+                {/* <img src={logo} alt="Game Play Logo" title="Game Play Logo"></img> */}
+                <nav className="navbar__links">
+                    
                 </nav>
             </div>
         )
     }
 }
+
+export default withRouter(NavBar);
