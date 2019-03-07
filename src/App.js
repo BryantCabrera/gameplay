@@ -6,11 +6,11 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        
+        <img src={logo} alt="Game Play Logo" title="Game Play Logo"></img>
           
       </div>
     );
   }
 }
 
-export default App;
+export default withRouter(App);
