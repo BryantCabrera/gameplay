@@ -3,31 +3,71 @@ import { graphql } from 'react-apollo';
 import gql from "graphql-tag";
 import { withRouter } from 'react-router-dom';
 
+import { usersListQuery } from '../Users/Users';
+
 class Register extends Component {
     state = {
         username: '',
         email: '',
         password: '',
         verify_password: '',
-        img: ''
+        img: 'https://i.imgur.com/KbicDVh.jpg',
+        games: [{
+            title: '',
+            author: '',
+            wins: 0,
+            losses: 0,
+            draws: 0
+        }],
+        error: ''
     }
 
     handleChange = (e) => {
         this.setState ({
             [e.target.name]: e.target.value
         });
-        console.log(this.state);
+        
+        if (e.target.name === 'password' || e.target.name === 'verify_password') {
+            this.setState({
+                error: ''
+            });
+        }
     }
 
     handleSubmit = (e) => {
         e.preventDefault();
 
-        const { username, email, password, verify_password } = this.state;
+        const { username, email, password, verify_password, img, games } = this.state;
+
+        if (password === verify_password) {
+            this.props.mutate({
+                variables: {input: {username, email, password, img, games}},
+                update: (store, { data: { createUser } }) => {
+                    // Reads our data from our cache (store)
+                    console.log(createUser, ' this is createUser from Register.js');
+                    const data = store.readQuery({ query: usersListQuery });
+                    console.log(data, ' this is data from Register.js');
+                    // Adds our content from the mutation to the end by pushing it into the getUsers array
+                    data.getUsers.push(createUser);
+    
+                    // Writes our data back to the cache (store)
+                    store.writeQuery({ query: usersListQuery, data });
+                }
+            });
+        } else {
+            // If the password verification does not match, reset password and verify_password input fields and display error message.
+            this.setState({
+                password: '',
+                verify_password: '',
+                error: 'Your passwords don\'t match'
+            });
+        }
     }
 
     render () {
         return (
             <form className="register" onSubmit={this.handleSubmit}>
+                { this.state.error ? <div>{this.state.error}</div> : ''}
                 <div className="register__field">
                     <label className="register__field--label" htmlFor="username">
                         Enter your username.
@@ -49,7 +89,7 @@ class Register extends Component {
                     <input 
                         className="register__field--input" 
                         name="email"
-                        type="text"
+                        type="email"
                         placeholder="Enter your email."
                         value={this.state.email}
                         onChange={this.handleChange}
@@ -63,7 +103,7 @@ class Register extends Component {
                     <input 
                         className="register__field--input" 
                         name="password"
-                        type="text"
+                        type="password"
                         placeholder="Enter your password."
                         value={this.state.password}
                         onChange={this.handleChange}
@@ -77,7 +117,7 @@ class Register extends Component {
                     <input 
                         className="register__field--input" 
                         name="verify_password"
-                        type="text"
+                        type="password"
                         placeholder="Verify your password."
                         value={this.state.verify_password}
                         onChange={this.handleChange}
@@ -90,4 +130,23 @@ class Register extends Component {
     }
 }
 
-export default withRouter(Register);
+// 1st line makes sure right value is passed
+//the $ denotes a variable, and we are saying that variable must look like whatever comes after the : (defined in our server schema)
+//this input variable will be called in the createUser mutation
+//the 2nd object is the response we want back from the database
+export const createUser = gql`
+  mutation createUser($input: UserInput){
+    createUser(input: $input){
+      id
+      username
+      email
+      password
+      img
+    }
+  }
+`
+
+const AddUserWithMutation = graphql(createUser)(Register);
+export default AddUserWithMutation;
+
+// export default withRouter(Register);
