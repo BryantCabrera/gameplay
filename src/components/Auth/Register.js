@@ -37,7 +37,7 @@ class Register extends Component {
     handleSubmit = (e) => {
         e.preventDefault();
 
-        const { username, email, password, verify_password, img, games } = this.state;
+        const { username, email, password, verify_password, img } = this.state;
 
         if (password === verify_password) {
             this.props.mutate({
@@ -154,6 +154,6 @@ export const createUser = gql`
 `
 
 const AddUserWithMutation = graphql(createUser)(Register);
-export default AddUserWithMutation;
+export default withRouter(AddUserWithMutation);
 
 // export default withRouter(Register);

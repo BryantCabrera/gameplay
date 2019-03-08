@@ -2,15 +2,17 @@ import React, { Component } from 'react';
 import { withRouter, NavLink } from 'react-router-dom';
 import logo from '../../logo.svg';
 
+
 class NavBar extends Component {
     render () {
         return (
-            <div className="navbar">
+            <nav className="navbar">
                 {/* <img src={logo} alt="Game Play Logo" title="Game Play Logo"></img> */}
-                <nav className="navbar__links">
-                    <NavLink exact to="/">Home</NavLink>
-                </nav>
-            </div>
+                <ul className="navbar__links">
+                    <li><NavLink exact to="/">Home</NavLink></li>
+                </ul>
+                
+            </nav>
         )
     }
 }
