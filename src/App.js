@@ -3,7 +3,9 @@ import { Route, Switch, withRouter } from 'react-router-dom';
 import './App.css';
 import NavBar from './components/NavBar/NavBar';
 import Register from './components/Auth/Register';
+import Login from './components/Auth/Login';
 import Users from './components/Users/Users';
+import UserProfile from './components/Users/UserProfile';
 import Games from './components/Games/Games';
 import Chat from './components/Chat/Chat';
 import Footer from './components/Footer/Footer';
@@ -15,8 +17,11 @@ class App extends Component {
         <NavBar />
         <Register />
         <Switch>
-          <Route exact path="/login" component={() =>  <Users history={this.props.history} /> } />
+          <Route exact path="/register" component={() =>  <Register history={this.props.history} /> } />
+          <Route exact path="/login" component={() =>  <Login history={this.props.history} /> } />
           <Route exact path="/games" component={() =>  <Games history={this.props.history} /> } />
+          <Route exact path="/users" component={() =>  <Users history={this.props.history} /> } />
+          <Route exact path="/users/id" component={() =>  <UserProfile history={this.props.history} /> } />
         </Switch>
         <Chat />
         <Footer />

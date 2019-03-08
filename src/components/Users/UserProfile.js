@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 
-class Login extends Component {
+class UserProfile extends Component {
     render () {
         return (
-            <div className="login">
+            <div className="user-profile">
                 This is Login.
             </div>
         )
     }
 }
 
-export default withRouter(Login);
+export default withRouter(UserProfile);
