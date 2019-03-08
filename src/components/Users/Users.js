@@ -3,39 +3,54 @@ import { graphql, compose } from 'react-apollo';
 import gql from "graphql-tag";
 
 const Users = ({data, mutate}) => {
-    console.log(data, ' this is data from Users.js');
-    if(data.loading){
-        return <p>Loading...</p>
-    }
+  if(data.loading){
+    return <p>Loading...</p>
+  }
 
-    if(data.error){
-        return <p>{data.error.message}</p>
-    }
+  if(data.error){
+    return <p>{data.error.message}</p>
+  }
 
-    const usersList = data.getUsers.map((user) => {
-        return <li key={user.id}>
-                  {user.userame}
-                  {user.email}
-                  {user.img}
-                  {user.games}
-              </li>
-        })
-    
-      return (
-        <ul>
-          {usersList}
-        </ul>
-        )
+  const usersList = data.getUsers.map(user => {
+    return <li key={user.id}>
+              {user.username}<br/>
+              {user.email}<br/>
+              {user.img}<br/>
+              {user.games.map(game => {
+                return (
+                  <ul key={game.id}>
+                    <li>{game.title}</li>
+                    <li>{game.wins}</li>
+                    <li>{game.losses}</li>
+                    <li>{game.draws}</li>
+                  </ul>
+                )
+              })}
+          </li>
+  })
+  
+  return (
+    <ul>
+      {usersList}
+    </ul>
+  )
 }
 
 export const usersListQuery = gql`
   query {
     getUsers {
+      id
+      username
+      email
+      img
+      games {
         id
-        username
-        email
-        img
-        games
+        title
+        author
+        wins
+        losses
+        draws
+      }
     }
   }
 `
@@ -43,5 +58,5 @@ export const usersListQuery = gql`
 // export default graphql(usersListQuery)(Users);
 
 export default compose(
-    graphql(usersListQuery)
+  graphql(usersListQuery)
 )(Users);

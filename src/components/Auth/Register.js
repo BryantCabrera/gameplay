@@ -41,12 +41,11 @@ class Register extends Component {
 
         if (password === verify_password) {
             this.props.mutate({
-                variables: {input: {username, email, password, img, games}},
+                variables: {input: {username, email, password, img}},
                 update: (store, { data: { createUser } }) => {
                     // Reads our data from our cache (store)
-                    console.log(createUser, ' this is createUser from Register.js');
                     const data = store.readQuery({ query: usersListQuery });
-                    console.log(data, ' this is data from Register.js');
+
                     // Adds our content from the mutation to the end by pushing it into the getUsers array
                     data.getUsers.push(createUser);
     
@@ -142,6 +141,14 @@ export const createUser = gql`
       email
       password
       img
+      games {
+        id
+        title
+        author
+        wins
+        losses
+        draws
+      }
     }
   }
 `
