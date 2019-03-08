@@ -42,3 +42,11 @@ html {
     transform: rotate(360deg);
   }
 }
+
+.home__logo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 5rem;
+  width: auto;
+}

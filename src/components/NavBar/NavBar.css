@@ -153,7 +153,8 @@
 .nav__navbar li:not(.active) a:active,
 .nav__navbar li:not(.active) a:focus {
     background-color: #b31515;
-    background-color: hsla(0, 88%, 70%, 1);
+    background-color: #6F325C; /* hsla(0, 88%, 70%, 1) */
+    
 }
 .nav__navbar li:not(.active) a:focus {
     /* fixes the "displacement" bug in webkit browsers when using tab key */
@@ -217,23 +218,23 @@
 /***** Navigation Responsiveness *****/
 @media screen and (max-width:480px){
 .nav__navbar{
-    font-size:.68em;
+    font-size: .68em;
   }
   .nav__button{
-    font-size:1em;
+    font-size: 1em;
   }
 .nav__navbar li {
-    font-size:1.52em;
+    font-size: 1.52em;
   }
 }
 
 @media screen and (max-width:320px){
   .no-csstransforms .nav__navbar{
-    width:15.15px;
+    width: 15.15px;
     margin-left: -7.5em;
   }
   .no-csstransforms .nav__navbar li{
-    height:3em;
-    width:3em;
+    height: 3em;
+    width: 3em;
   }
 }
