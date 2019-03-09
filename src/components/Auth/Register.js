@@ -66,7 +66,7 @@ class Register extends Component {
     render () {
         return (
             <form className="register" onSubmit={this.handleSubmit}>
-                { this.state.error ? <div>{this.state.error}</div> : ''}
+                {this.state.error ? <div className="error-message">{this.state.error}</div> : ''}
                 <div className="register__field">
                     <label className="register__field--label" htmlFor="username">
                         Enter your username.

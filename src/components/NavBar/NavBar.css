@@ -45,8 +45,9 @@
 
 .nav__button:hover,
 .nav__button:active,
-.nav__button:focus{
+.nav__button:focus {
     background-color: #222;
+    outline: none;
 }
 
 /***** Overlay *****/
