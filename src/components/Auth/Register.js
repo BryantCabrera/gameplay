@@ -63,13 +63,12 @@ class Register extends Component {
             this.setState({
                 password: '',
                 verify_password: '',
-                error: 'Your passwords don\'t match'
+                error: 'Your passwords don\'t match.'
             });
         }
     }
 
     render () {
-        console.log(`${this.props.registerDisplay}`, 'displayregister');
         return (
             <div className="overlay" style={{ display: `${this.props.registerDisplay}` }}>
                 <form className="register" onSubmit={this.handleSubmit}>

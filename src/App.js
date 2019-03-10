@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { Route, Switch, withRouter } from 'react-router-dom';
 import './App.css';
-import logo from './logo.svg';
+import logo from './static/imgs/logo.svg';
+import Header from './components/Header/Header';
 import NavBar from './components/NavBar/NavBar';
 import Register from './components/Auth/Register';
 import Login from './components/Auth/Login';
@@ -34,7 +35,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <img className="home__logo" src={logo} alt="Game Play Logo" title="Game Play Logo"></img>
+        <Header />
         <Register history={this.props.history} registerDisplay={this.state.registerDisplay} toggleRegister={this.toggleRegister} />
         <Login history={this.props.history} loginDisplay={this.state.loginDisplay} toggleLogin={this.toggleLogin} />
         <NavBar toggleRegister={this.toggleRegister} toggleLogin={this.toggleLogin} />
