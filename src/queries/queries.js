@@ -7,19 +7,19 @@ import gql from "graphql-tag";
 export const createUser = gql`
   mutation createUser($input: UserInput){
     createUser(input: $input){
-      id
-      username
-      email
-      password
-      img
-      games {
         id
-        title
-        author
-        wins
-        losses
-        draws
-      }
+        username
+        email
+        password
+        img
+        games {
+            id
+            title
+            author
+            wins
+            losses
+            draws
+        }
     }
   }
 `
@@ -27,25 +27,28 @@ export const createUser = gql`
 export const usersListQuery = gql`
   query {
     getUsers {
-      id
-      username
-      email
-      img
-      games {
         id
-        title
-        author
-        wins
-        losses
-        draws
-      }
+        username
+        email
+        img
+        games {
+            id
+            title
+            author
+            wins
+            losses
+            draws
+        }
     }
   }
 `
 
 export const userLoginQuery = gql`
   query {
-    login
+    loginUser {
+        email
+        password
+    }
   }
 `
 
