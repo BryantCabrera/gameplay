@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Route, Switch, withRouter } from 'react-router-dom';
 import './App.css';
-import logo from './static/imgs/logo.svg';
 import Header from './components/Header/Header';
 import NavBar from './components/NavBar/NavBar';
 import Register from './components/Auth/Register';

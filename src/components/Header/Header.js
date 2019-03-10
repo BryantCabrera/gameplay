@@ -7,7 +7,7 @@ class Header extends Component {
     render() {
         return (
             <header className="header">
-                <NavLink exact to="/" className="header__logo--link"><img className="header__logo" src='../../static/imgs/logo.svg' alt="Game Play Logo" title="Game Play Logo"></img></NavLink>
+                <NavLink exact to="/" className="header__logo--link"><img className="header__logo" src={logo} alt="Game Play Logo" title="Game Play Logo"></img></NavLink>
                 <div className="header__bryant">
                     created by: Bryant Cabrera
                 </div>
