@@ -69,9 +69,11 @@ class Register extends Component {
     }
 
     render () {
+        console.log(`${this.props.registerDisplay}`, 'displayregister');
         return (
-            <div className="overlay">
+            <div className="overlay" style={{ display: `${this.props.registerDisplay}` }}>
                 <form className="register" onSubmit={this.handleSubmit}>
+                    <button className="close-modal" type="button" onClick={this.props.toggleRegister}>X</button>
                     {this.state.error ? <div className="error-message">{this.state.error}</div> : ''}
                     <div className="form__field">
                         <input

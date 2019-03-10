@@ -49,7 +49,6 @@ class Login extends Component {
     }
 
     render () {
-        console.log(`${this.props.loginDisplay}`, 'displayLogin');
         return (
             <div className="overlay" style={{display: `${this.props.loginDisplay}`}}>
                 <form className="login" onSubmit={this.handleSubmit}>

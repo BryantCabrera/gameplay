@@ -57,7 +57,7 @@ class NavBar extends Component {
 
                         <li><NavLink exact to="/games"><FontAwesomeIcon icon={faGamepad} /></NavLink></li>
 
-                        {this.props.loggedUser ? <li><NavLink exact to="/users/:id"><FontAwesomeIcon icon={faUser} /><br>Me</br></NavLink></li> : <li><NavLink exact to="/register"><FontAwesomeIcon icon={faRegistered} /></NavLink></li>}
+                        {this.props.loggedUser ? <li><NavLink exact to="/users/:id"><FontAwesomeIcon icon={faUser} /><br>Me</br></NavLink></li> : <li><NavLink exact to="#" onClick={this.props.toggleRegister}><FontAwesomeIcon icon={faRegistered} /></NavLink></li>}
 
                         {this.props.loggedUser ? <li><NavLink exact to="/"><FontAwesomeIcon icon={faSignOutAlt} /></NavLink></li> : <li><NavLink exact to="#" onClick={this.props.toggleLogin}><FontAwesomeIcon icon={faSignInAlt} /></NavLink></li>}
                     </ul>

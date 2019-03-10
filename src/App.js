@@ -13,10 +13,18 @@ import Footer from './components/Footer/Footer';
 
 class App extends Component {
   state = {
+    registerDisplay: 'none',
     loginDisplay: 'none'
   }
 
-  toggleLogin = (e) => {
+  toggleRegister = () => {
+    const display = this.state.registerDisplay === 'none' ? 'flex' : 'none';
+    this.setState({
+      registerDisplay: display
+    });
+  }
+
+  toggleLogin = () => {
     const display = this.state.loginDisplay === 'none' ? 'flex': 'none';
     this.setState({
       loginDisplay: display
@@ -27,10 +35,11 @@ class App extends Component {
     return (
       <div className="App">
         <img className="home__logo" src={logo} alt="Game Play Logo" title="Game Play Logo"></img>
-        <Login history={this.props.history} toggleLogin={this.toggleLogin} loginDisplay={this.state.loginDisplay} />
-        <NavBar toggleLogin={this.toggleLogin} />
+        <Register history={this.props.history} registerDisplay={this.state.registerDisplay} toggleRegister={this.toggleRegister} />
+        <Login history={this.props.history} loginDisplay={this.state.loginDisplay} toggleLogin={this.toggleLogin} />
+        <NavBar toggleRegister={this.toggleRegister} toggleLogin={this.toggleLogin} />
         <Switch>
-          <Route exact path="/register" component={() =>  <Register history={this.props.history} /> } />
+          {/* <Route exact path="/register" component={() =>  <Register history={this.props.history} /> } /> */}
           {/* <Route exact path="/login" component={() =>  <Login history={this.props.history} toggleLogin={this.toggleLogin} loginDisplay={this.state.loginDisplay} /> } /> */}
           <Route exact path="/games" component={() =>  <Games history={this.props.history} /> } />
           <Route exact path="/users" component={() =>  <Users history={this.props.history} /> } />

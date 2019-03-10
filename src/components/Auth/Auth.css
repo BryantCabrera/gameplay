@@ -103,6 +103,10 @@ form {
     cursor: pointer;
 }
 
+.close-modal:focus {
+    outline: none;
+}
+
 /***** Overlay *****/
 .overlay {
     position: fixed;
