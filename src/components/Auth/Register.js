@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { graphql } from 'react-apollo';
-import gql from "graphql-tag";
+// import gql from "graphql-tag";
+import { createUser, usersListQuery } from '../../queries/queries';
 import { withRouter } from 'react-router-dom';
 
-import { usersListQuery } from '../Users/Users';
+// import { usersListQuery } from '../Users/Users';
 
 class Register extends Component {
     state = {
@@ -129,29 +130,29 @@ class Register extends Component {
     }
 }
 
-// 1st line makes sure right value is passed
-//the $ denotes a variable, and we are saying that variable must look like whatever comes after the : (defined in our server schema)
-//this input variable will be called in the createUser mutation
-//the 2nd object is the response we want back from the database
-export const createUser = gql`
-  mutation createUser($input: UserInput){
-    createUser(input: $input){
-      id
-      username
-      email
-      password
-      img
-      games {
-        id
-        title
-        author
-        wins
-        losses
-        draws
-      }
-    }
-  }
-`
+// // 1st line makes sure right value is passed
+// //the $ denotes a variable, and we are saying that variable must look like whatever comes after the : (defined in our server schema)
+// //this input variable will be called in the createUser mutation
+// //the 2nd object is the response we want back from the database
+// export const createUser = gql`
+//   mutation createUser($input: UserInput){
+//     createUser(input: $input){
+//       id
+//       username
+//       email
+//       password
+//       img
+//       games {
+//         id
+//         title
+//         author
+//         wins
+//         losses
+//         draws
+//       }
+//     }
+//   }
+// `
 
 const AddUserWithMutation = graphql(createUser)(Register);
 export default withRouter(AddUserWithMutation);

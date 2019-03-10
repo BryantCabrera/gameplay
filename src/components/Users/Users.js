@@ -1,6 +1,7 @@
 import React from 'react';
 import { graphql, compose } from 'react-apollo';
-import gql from "graphql-tag";
+// import gql from "graphql-tag";
+import { usersListQuery, userLoginQuery } from '../../queries/queries';
 
 const Users = ({data, mutate}) => {
   if(data.loading){
@@ -36,24 +37,30 @@ const Users = ({data, mutate}) => {
   )
 }
 
-export const usersListQuery = gql`
-  query {
-    getUsers {
-      id
-      username
-      email
-      img
-      games {
-        id
-        title
-        author
-        wins
-        losses
-        draws
-      }
-    }
-  }
-`
+// export const usersListQuery = gql`
+//   query {
+//     getUsers {
+//       id
+//       username
+//       email
+//       img
+//       games {
+//         id
+//         title
+//         author
+//         wins
+//         losses
+//         draws
+//       }
+//     }
+//   }
+// `
+
+// export const userLoginQuery = gql`
+//   query {
+//     login
+//   }
+// `
 
 // export default graphql(usersListQuery)(Users);
 
