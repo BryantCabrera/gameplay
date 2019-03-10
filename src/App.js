@@ -18,14 +18,14 @@ class App extends Component {
   }
 
   toggleRegister = () => {
-    const display = this.state.registerDisplay === 'none' ? 'flex' : 'none';
+    const display = this.state.registerDisplay === 'none' && this.state.loginDisplay === 'none' ? 'flex' : 'none';
     this.setState({
       registerDisplay: display
     });
   }
 
   toggleLogin = () => {
-    const display = this.state.loginDisplay === 'none' ? 'flex': 'none';
+    const display = this.state.loginDisplay === 'none' && this.state.registerDisplay === 'none' ? 'flex': 'none';
     this.setState({
       loginDisplay: display
     });
