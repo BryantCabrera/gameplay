@@ -72,63 +72,63 @@ class Register extends Component {
         return (
             <form className="register" onSubmit={this.handleSubmit}>
                 {this.state.error ? <div className="error-message">{this.state.error}</div> : ''}
-                <div className="register__field">
-                    <label className="register__field--label" htmlFor="username">
-                        Enter your username.
-                    </label>
-                    <input 
-                        className="register__field--input" 
+                <div className="form__field">
+                    <input
+                        className="form__field--input"
                         name="username"
                         type="text"
-                        placeholder="Enter your username."
+                        placeholder="Username"
                         value={this.state.username}
                         onChange={this.handleChange}
-                        >
+                    >
                     </input>
-                </div>
-                <div className="register__field">
-                    <label className="register__field--label" htmlFor="email">
-                        Enter your email.
+                    <label className="form__field--label" htmlFor="username">
+                        Username
                     </label>
-                    <input 
-                        className="register__field--input" 
+                </div>
+                <div className="form__field">
+                    <input
+                        className="form__field--input"
                         name="email"
                         type="email"
-                        placeholder="Enter your email."
+                        placeholder="Email"
                         value={this.state.email}
                         onChange={this.handleChange}
-                        >
+                    >
                     </input>
-                </div>
-                <div className="register__field">
-                    <label className="register__field--label" htmlFor="password">
-                        Enter your password.
+                    <label className="form__field--label" htmlFor="email">
+                        Email
                     </label>
-                    <input 
-                        className="register__field--input" 
+                </div>
+                <div className="form__field">
+                    <input
+                        className="form__field--input"
                         name="password"
                         type="password"
-                        placeholder="Enter your password."
+                        placeholder="Password"
                         value={this.state.password}
                         onChange={this.handleChange}
-                        >
+                    >
                     </input>
-                </div>
-                <div className="register__field">
-                    <label className="register__field--label" htmlFor="verify_password">
-                        Please verify the password you entered.
+                    <label className="form__field--label" htmlFor="password">
+                        Password
                     </label>
-                    <input 
-                        className="register__field--input" 
+                </div>
+                <div className="form__field">
+                    <input
+                        className="form__field--input"
                         name="verify_password"
                         type="password"
-                        placeholder="Verify your password."
+                        placeholder="Verify password"
                         value={this.state.verify_password}
                         onChange={this.handleChange}
-                        >
+                    >
                     </input>
+                    <label className="form__field--label" htmlFor="verify_password">
+                        Verify password
+                    </label>
                 </div>
-                <button className="btn register__btn">Register</button>
+                <button className="btn form__btn">Register</button>
             </form>
         )
     }

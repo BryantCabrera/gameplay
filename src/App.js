@@ -17,7 +17,6 @@ class App extends Component {
       <div className="App">
         <img className="home__logo" src={logo} alt="Game Play Logo" title="Game Play Logo"></img>
         <NavBar />
-        <Register />
         <Switch>
           <Route exact path="/register" component={() =>  <Register history={this.props.history} /> } />
           <Route exact path="/login" component={() =>  <Login history={this.props.history} /> } />

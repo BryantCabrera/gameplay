@@ -1,3 +1,12 @@
+:root {
+  --color-primary: rgba(33, 83, 141, 1); /* #21538D */
+  --color-primary-light: rgba(48, 121, 205, 1); /* #3079CD */
+  --color-primary-dark: rgba(18, 83, 78, 1); /* #122E4E */
+  --color-primary-dark: rgba(18, 46, 78, 1); /* #122E4E */
+  --color-primary-darker: rgba(15, 38, 65, 1); /* #0F2641 */
+  --color-primary-darkest: rgba(12, 30, 51, 1); /* #0C1E33 */
+}
+
 /******************************/
 /********** Navigation **********/
 /******************************/
@@ -134,27 +143,27 @@
 }
   
 .nav__navbar li:nth-child(odd) a {
-    background-color: #a11313;
-    background-color: hsla(0, 88%, 63%, 1);
+    background-color: var(--color-primary-dark); /*#a11313*/
+    background-color: var(--color-primary-dark); /*hsla(0, 88%, 63%, 1)*/
 }
   
 .nav__navbar li:nth-child(even) a {
-    background-color: #a61414;
-    background-color: hsla(0, 88%, 65%, 1);
+    background-color: var(--color-primary-darkest); /*#a61414*/
+    background-color: var(--color-primary-darkest); /*hsla(0, 88%, 65%, 1)*/
 }
   
 /* active style */
 .nav__navbar li.active a {
-    background-color: #b31515;
-    background-color: hsla(0, 88%, 70%, 1);
+    background-color: var(--color-primary-light); /*#b31515*/
+    background-color: var(--color-primary-light); /*hsla(0, 88%, 70%, 1)*/
 }
   
 /* hover style */
 .nav__navbar li:not(.active) a:hover,
 .nav__navbar li:not(.active) a:active,
 .nav__navbar li:not(.active) a:focus {
-    background-color: #b31515;
-    background-color: #6F325C; /* hsla(0, 88%, 70%, 1) */
+    background-color: var(--color-primary-light); /*#b31515*/
+    background-color: var(--color-primary-light); /* hsla(0, 88%, 70%, 1) #6F325C*/
     
 }
 .nav__navbar li:not(.active) a:focus {
