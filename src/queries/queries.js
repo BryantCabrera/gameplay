@@ -44,8 +44,8 @@ export const usersListQuery = gql`
 `
 
 export const userLoginQuery = gql`
-  query {
-    loginUser {
+  mutation loginUser($input: UserLoginInput) {
+    loginUser(input: $input) {
         email
         password
     }

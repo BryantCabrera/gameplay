@@ -1,7 +1,7 @@
 import React from 'react';
 import { graphql, compose } from 'react-apollo';
 // import gql from "graphql-tag";
-import { usersListQuery, userLoginQuery } from '../../queries/queries';
+import { usersListQuery } from '../../queries/queries';
 
 const Users = ({data, mutate}) => {
   if(data.loading){

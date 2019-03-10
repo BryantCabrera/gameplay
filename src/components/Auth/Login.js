@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { graphql } from 'react-apollo';
+import { userLoginQuery } from '../../queries/queries';
 import { withRouter } from 'react-router-dom';
 
 class Login extends Component {
@@ -6,6 +8,10 @@ class Login extends Component {
         email: '',
         password: '',
         error: ''
+    }
+
+    componentDidMount = () => {
+        console.log(this.props, ' Login props');
     }
 
     handleChange = (e) => {
@@ -19,28 +25,22 @@ class Login extends Component {
 
         const { email, password } = this.state;
 
-        // if (password === verify_password) {
-        //     this.props.mutate({
-        //         variables: { input: { username, email, password, img } },
-        //         update: (store, { data: { createUser } }) => {
-        //             // Reads our data from our cache (store)
-        //             const data = store.readQuery({ query: usersListQuery });
+        if (this.state.email && this.state.password) {
+            this.props.mutate({
+                variables: { input: { email, password } },
+                update: (store, { data: { loginUser } }) => {
+                    // Reads our data from our cache (store)
+                    const data = store.readQuery({ query: userLoginQuery });
 
-        //             // Adds our content from the mutation to the end by pushing it into the getUsers array
-        //             data.getUsers.push(createUser);
-
-        //             // Writes our data back to the cache (store)
-        //             store.writeQuery({ query: usersListQuery, data });
-        //         }
-        //     });
-        // } else {
-        //     // If the password verification does not match, reset password and verify_password input fields and display error message.
-        //     this.setState({
-        //         password: '',
-        //         verify_password: '',
-        //         error: 'Your passwords don\'t match'
-        //     });
-        // }
+                    console.log(data);
+                }
+            });
+        } else {
+            // If the password verification does not match, reset password and verify_password input fields and display error message.
+            this.setState({
+                error: 'You left one or more fields blank.  Please make sure you provide an email & a password.'
+            });
+        }
     }
 
     render () {
@@ -81,4 +81,5 @@ class Login extends Component {
     }
 }
 
-export default withRouter(Login);
+const LoginUserWithMutation = graphql(userLoginQuery)(Login);
+export default withRouter(LoginUserWithMutation);

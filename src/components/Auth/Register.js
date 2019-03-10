@@ -23,6 +23,10 @@ class Register extends Component {
         error: ''
     }
 
+    componentDidMount = () => {
+        console.log(this.props, ' Register props');
+    }
+
     handleChange = (e) => {
         this.setState ({
             [e.target.name]: e.target.value
