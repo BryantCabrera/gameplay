@@ -15,6 +15,10 @@ class Login extends Component {
         console.log(this.props, ' Login props');
     }
 
+    openModal = (e) => {
+        
+    }
+
     handleChange = (e) => {
         this.setState({
             [e.target.name]: e.target.value
@@ -39,7 +43,7 @@ class Login extends Component {
         } else {
             // If the password verification does not match, reset password and verify_password input fields and display error message.
             this.setState({
-                error: 'You left one or more fields blank.  Please make sure you provide an email & a password.'
+                error: 'You left one or more fields blank.'
             });
         }
     }
