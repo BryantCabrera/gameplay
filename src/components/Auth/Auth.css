@@ -9,10 +9,13 @@
   --color-secondary-light: #7ed56f;
   --color-secondary-dark: #28b485;
 }
+
 /******************************/
 /********** Auth **********/
 /******************************/
+/***** Forms *****/
 form {
+    position: relative;
     padding-top: 1rem;
 }
 
@@ -84,4 +87,33 @@ form {
     opacity: 0;
     visibility: hidden;
     transform: translateY(-4rem);
+}
+
+/***** Close Button *****/
+.close-modal {
+    position: absolute;
+    top: -1.5rem;
+    right: -1.5rem;
+    height: 4rem;
+    width: 4rem;
+    border-radius: 50%;
+    font-size: 2rem;
+    background-color: rgba(0, 0, 0, .5);
+    color: white;
+    cursor: pointer;
+}
+
+/***** Overlay *****/
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, .7);
 }

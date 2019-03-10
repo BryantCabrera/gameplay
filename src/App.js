@@ -12,14 +12,26 @@ import Chat from './components/Chat/Chat';
 import Footer from './components/Footer/Footer';
 
 class App extends Component {
+  state = {
+    loginDisplay: 'none'
+  }
+
+  toggleLogin = (e) => {
+    const display = this.state.loginDisplay === 'none' ? 'flex': 'none';
+    this.setState({
+      loginDisplay: display
+    });
+  }
+
   render() {
     return (
       <div className="App">
         <img className="home__logo" src={logo} alt="Game Play Logo" title="Game Play Logo"></img>
-        <NavBar />
+        <Login history={this.props.history} toggleLogin={this.toggleLogin} loginDisplay={this.state.loginDisplay} />
+        <NavBar toggleLogin={this.toggleLogin} />
         <Switch>
           <Route exact path="/register" component={() =>  <Register history={this.props.history} /> } />
-          <Route exact path="/login" component={() =>  <Login history={this.props.history} /> } />
+          {/* <Route exact path="/login" component={() =>  <Login history={this.props.history} toggleLogin={this.toggleLogin} loginDisplay={this.state.loginDisplay} /> } /> */}
           <Route exact path="/games" component={() =>  <Games history={this.props.history} /> } />
           <Route exact path="/users" component={() =>  <Users history={this.props.history} /> } />
           <Route exact path="/users/id" component={() =>  <UserProfile history={this.props.history} /> } />

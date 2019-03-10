@@ -16,7 +16,7 @@ class Login extends Component {
     }
 
     openModal = (e) => {
-        
+
     }
 
     handleChange = (e) => {
@@ -49,39 +49,43 @@ class Login extends Component {
     }
 
     render () {
+        console.log(`${this.props.loginDisplay}`, 'displayLogin');
         return (
-            <form className="login" onSubmit={this.handleSubmit}>
-                {this.state.error ? <div className="error-message">{this.state.error}</div> : ''}
-                <div className="form__field">
-                    <input
-                        className="form__field--input"
-                        name="email"
-                        type="email"
-                        placeholder="Email"
-                        value={this.state.email}
-                        onChange={this.handleChange}
-                    >
-                    </input>
-                    <label className="form__field--label" htmlFor="email">
-                        Email
-                    </label>
-                </div>
-                <div className="form__field">
-                    <input
-                        className="form__field--input"
-                        name="password"
-                        type="password"
-                        placeholder="Password"
-                        value={this.state.password}
-                        onChange={this.handleChange}
-                    >
-                    </input>
-                    <label className="form__field--label" htmlFor="password">
-                        Password
-                    </label> 
-                </div>
-                <button className="btn form__btn">Log In</button>
-            </form>
+            <div className="overlay" style={{display: `${this.props.loginDisplay}`}}>
+                <form className="login" onSubmit={this.handleSubmit}>
+                    <button className="close-modal" type="button" onClick={this.props.toggleLogin}>X</button>
+                    {this.state.error ? <div className="error-message">{this.state.error}</div> : ''}
+                    <div className="form__field">
+                        <input
+                            className="form__field--input"
+                            name="email"
+                            type="email"
+                            placeholder="Email"
+                            value={this.state.email}
+                            onChange={this.handleChange}
+                        >
+                        </input>
+                        <label className="form__field--label" htmlFor="email">
+                            Email
+                        </label>
+                    </div>
+                    <div className="form__field">
+                        <input
+                            className="form__field--input"
+                            name="password"
+                            type="password"
+                            placeholder="Password"
+                            value={this.state.password}
+                            onChange={this.handleChange}
+                        >
+                        </input>
+                        <label className="form__field--label" htmlFor="password">
+                            Password
+                        </label> 
+                    </div>
+                    <button className="btn form__btn">Log In</button>
+                </form>
+            </div>
         )
     }
 }
