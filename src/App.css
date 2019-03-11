@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Prompt:400,500i,700,900');
+
 :root {
   --color-primary: rgba(33, 83, 141, 1); /* #21538D */
   --color-primary-light: rgba(48, 121, 205, 1); /* #3079CD */
@@ -21,6 +23,7 @@
 }
 
 html {
+  font-family: 'Prompt', sans-serif;
   font-size: 62.5%;
   width: 100vw;
 }
