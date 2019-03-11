@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { graphql } from 'react-apollo';
-import { userLoginQuery } from '../../queries/queries';
+import { userLoginMutation } from '../../queries/queries';
 import { withRouter } from 'react-router-dom';
 import './Auth.css';
 
@@ -35,12 +35,13 @@ class Login extends Component {
                 variables: { input: { email, password } },
                 update: (store, { data: { loginUser } }) => {
                     // Reads our data from our cache (store)
-                    // const data = store.readQuery({ query: userLoginQuery });
+                    const data = store.readQuery({ query: userLoginMutation });
                     const user = loginUser;
 
                     // data.getUsers.push(loginUser);
 
-                    console.log(user, ' data from Login.js');
+                    console.log(data, ' data from Login.js');
+                    console.log(user, ' user from Login.js');
 
                     this.props.loginUser(user);
                 }
@@ -95,5 +96,5 @@ class Login extends Component {
     }
 }
 
-const LoginUserWithMutation = graphql(userLoginQuery)(Login);
+const LoginUserWithMutation = graphql(userLoginMutation)(Login);
 export default withRouter(LoginUserWithMutation);

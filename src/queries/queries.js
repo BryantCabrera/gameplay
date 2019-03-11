@@ -43,7 +43,7 @@ export const usersListQuery = gql`
   }
 `
 
-export const userLoginQuery = gql`
+export const userLoginMutation = gql`
   mutation loginUser($input: UserLoginInput) {
     loginUser(input: $input) {
       id
@@ -57,6 +57,25 @@ export const userLoginQuery = gql`
         losses
         draws
       }
+    }
+  }
+`
+
+export const LoggedUserQuery = gql`
+  query {
+    getLoggedUser {
+        id
+        username
+        email
+        img
+        games {
+          id
+          title
+          author
+          wins
+          losses
+          draws
+        }
     }
   }
 `
