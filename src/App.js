@@ -3,6 +3,7 @@ import { Route, Switch, withRouter } from 'react-router-dom';
 import './App.css';
 import Header from './components/Header/Header';
 import NavBar from './components/NavBar/NavBar';
+import Main from './components/Main/Main';
 import Register from './components/Auth/Register';
 import Login from './components/Auth/Login';
 import Users from './components/Users/Users';
@@ -35,6 +36,7 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
+        <Main />
         <Register history={this.props.history} registerDisplay={this.state.registerDisplay} toggleRegister={this.toggleRegister} />
         <Login history={this.props.history} loginDisplay={this.state.loginDisplay} toggleLogin={this.toggleLogin} />
         <NavBar toggleRegister={this.toggleRegister} toggleLogin={this.toggleLogin} />

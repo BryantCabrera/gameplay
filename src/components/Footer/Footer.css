@@ -1,0 +1,35 @@
+:root {
+  --color-primary: rgba(33, 83, 141, 1); /* #21538D */
+  --color-primary-light: rgba(48, 121, 205, 1); /* #3079CD */
+  --color-primary-dark: rgba(18, 83, 78, 1); /* #122E4E */
+  --color-primary-dark: rgba(18, 46, 78, 1); /* #122E4E */
+  --color-primary-darker: rgba(15, 38, 65, 1); /* #0F2641 */
+  --color-primary-darkest: rgba(12, 30, 51, 1); /* #0C1E33 */
+
+  --color-secondary: #55c57a;
+  --color-secondary-light: #7ed56f;
+  --color-secondary-dark: #28b485;
+}
+
+/******************************/
+/********** Footer **********/
+/******************************/
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    height: 4rem;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    background-color: transparent;
+}
+
+.footer__links {
+    margin-right: .5rem;
+}
+
+.footer__links li {
+    list-style: none;
+}

@@ -70,6 +70,17 @@ body {
 /******************************/
 /********** Reusable **********/
 /******************************/
+/***** Links *****/
+a:link,
+a:visited {
+  text-decoration: none;
+  color: black;
+}
+
+a:hover,
+a:active {
+  color: var(--color-primary);
+}
 
 /***** Buttons *****/
 .btn,
