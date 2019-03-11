@@ -15,7 +15,8 @@ import Footer from './components/Footer/Footer';
 class App extends Component {
   state = {
     registerDisplay: 'none',
-    loginDisplay: 'none'
+    loginDisplay: 'none',
+    loggedUser: {}
   }
 
   toggleRegister = () => {
@@ -32,13 +33,19 @@ class App extends Component {
     });
   }
 
+  loginUser = (user) => {
+    this.setState({
+      loggedUser: user
+    })
+  }
+
   render() {
     return (
       <div className="App">
         <Header />
         <Main />
         <Register history={this.props.history} registerDisplay={this.state.registerDisplay} toggleRegister={this.toggleRegister} />
-        <Login history={this.props.history} loginDisplay={this.state.loginDisplay} toggleLogin={this.toggleLogin} />
+        <Login history={this.props.history} loginDisplay={this.state.loginDisplay} toggleLogin={this.toggleLogin} loginUser={this.loginUser} />
         <NavBar toggleRegister={this.toggleRegister} toggleLogin={this.toggleLogin} />
         <Switch>
           {/* <Route exact path="/register" component={() =>  <Register history={this.props.history} /> } /> */}

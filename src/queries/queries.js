@@ -32,12 +32,12 @@ export const usersListQuery = gql`
         email
         img
         games {
-            id
-            title
-            author
-            wins
-            losses
-            draws
+          id
+          title
+          author
+          wins
+          losses
+          draws
         }
     }
   }
@@ -46,8 +46,17 @@ export const usersListQuery = gql`
 export const userLoginQuery = gql`
   mutation loginUser($input: UserLoginInput) {
     loginUser(input: $input) {
-        email
-        password
+      id
+      username
+      email
+      games {
+        id
+        title
+        author
+        wins
+        losses
+        draws
+      }
     }
   }
 `

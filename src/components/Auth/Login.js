@@ -35,9 +35,14 @@ class Login extends Component {
                 variables: { input: { email, password } },
                 update: (store, { data: { loginUser } }) => {
                     // Reads our data from our cache (store)
-                    const data = store.readQuery({ query: userLoginQuery });
+                    // const data = store.readQuery({ query: userLoginQuery });
+                    const user = loginUser;
 
-                    console.log(data);
+                    // data.getUsers.push(loginUser);
+
+                    console.log(user, ' data from Login.js');
+
+                    this.props.loginUser(user);
                 }
             });
         } else {
@@ -49,6 +54,7 @@ class Login extends Component {
     }
 
     render () {
+        console.log(this.props)
         return (
             <div className="overlay" style={{display: `${this.props.loginDisplay}`}}>
                 <form className="login" onSubmit={this.handleSubmit}>

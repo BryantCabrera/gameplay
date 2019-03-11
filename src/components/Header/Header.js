@@ -12,7 +12,7 @@ class Header extends Component {
                 <NavLink exact to="/" className="header__logo--link">
                     <img className="header__logo" src="https://i.imgur.com/Y40XSUQ.png" alt="Game Play Logo" title="Game Play Logo"></img></NavLink>
                 <ul className="header__links">
-                    <li><img src="../../../public/github-brands.svg"></img></li>
+                    <li><img src="../../../public/github-brands.svg" alt="GitHub" title="GitHub"></img></li>
                 </ul>
             </header>
         )
